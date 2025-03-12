@@ -9,19 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/eslint-plugin-next": "^15.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.26.1",
+    "@typescript-eslint/parser": "^8.26.1",
+    "next": "15.2.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.2.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@antfu/eslint-config": "^4.10.1",
+    "@eslint-react/eslint-plugin": "^1.32.0",
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "^19",
+    "eslint": "^9.22.0",
     "eslint-config-next": "15.2.2",
-    "@eslint/eslintrc": "^3"
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
