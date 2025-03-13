@@ -1,7 +1,9 @@
 import { useRef, useState } from 'react';
 import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/utils/cn';
 import { useClickOutside } from '@/hooks/useClickOutside';
+import type { LangType } from '@/types';
 
 const langs = [
   {
@@ -14,12 +16,22 @@ const langs = [
   },
 ];
 
-const LangDropdown = () => {
+const LangDropdown = ({ lang }: { lang: LangType }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   const ref = useRef<HTMLDivElement>(null);
 
   useClickOutside({ ref, callback: () => setIsOpen(false) });
+
+  const handleChangeLang = (lang: string) => {
+    const segments = pathname.split('/').filter(Boolean);
+    segments[0] = lang;
+    router.push(`/${segments.join('/')}`);
+  };
+
+  const parsedLang = langs.find(langItem => langItem.value === lang);
 
   return (
     <div className='absolute top-0 right-0' onClick={() => setIsOpen(!isOpen)} ref={ref}>
@@ -31,7 +43,9 @@ const LangDropdown = () => {
             : 'border-primary-white/10 rounded-[6.25rem]'
         )}>
         <div className='flex items-center'>
-          <div className='text-primary-white text-[0.625rem] font-bold uppercase'>Lang</div>
+          <div className='text-primary-white text-[0.625rem] font-bold uppercase'>
+            {isOpen ? 'Lan' : parsedLang?.label}
+          </div>
           <Image
             src='/images/arrow.svg'
             alt='arrow'
@@ -42,14 +56,21 @@ const LangDropdown = () => {
         </div>
 
         {isOpen && (
-          <div className='block mr-auto w-full'>
+          <div className='w-full'>
             <div className='w-full h-[0.0625rem] bg-primary-white/20 my-1.5' />
-
-            {langs.map(lang => (
-              <span className='text-primary-white block text-[0.6875rem] uppercase mb-2.5' key={lang.value}>
-                {lang.label}
-              </span>
-            ))}
+            <div className='block mr-auto'>
+              {langs.map(langItem => (
+                <span
+                  className={cn(
+                    'text-primary-white block text-[0.6875rem] uppercase mb-2.5 cursor-pointer max-w-6 hover:text-primary-green',
+                    lang === langItem.value && 'border-b border-primary-green text-primary-green'
+                  )}
+                  key={langItem.value}
+                  onClick={() => handleChangeLang(langItem.value)}>
+                  {langItem.label}
+                </span>
+              ))}
+            </div>
           </div>
         )}
       </div>

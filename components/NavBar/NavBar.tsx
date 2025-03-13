@@ -5,6 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import TextButton from '../TextButton/TextButton';
 import LangDropdown from '../LangDropdown/LangDropdown';
+import type { LangType } from '@/types';
+
+interface NavBarProps {
+  lang: LangType;
+}
 
 const navLinks = [
   {
@@ -33,8 +38,16 @@ const navLinks = [
   },
 ];
 
-const NavBar = () => {
+const NavBar = ({ lang }: NavBarProps) => {
   const pathname = usePathname();
+
+  const handleActive = (href: string) => {
+    if (href === '/') {
+      return pathname === `/${lang}`;
+    }
+
+    return pathname.toLowerCase() === `/${lang}${href.toLowerCase()}`;
+  };
 
   return (
     <div className='absolute top-[3.6rem] left-[13.375rem] z-[10] -mt-5.5 flex items-center justify-between w-full max-w-[calc(100%-13.375rem)]'>
@@ -44,7 +57,7 @@ const NavBar = () => {
             <span
               className={cn(
                 'w-[0.125rem] h-[1rem] bg-primary-green rotate-[15deg] absolute -left-2.5 top-[calc(50%-0.020rem)] -translate-y-1/2',
-                item.href.toLowerCase() === pathname.toLowerCase() ? 'opacity-100' : 'opacity-0'
+                handleActive(item.href) ? 'opacity-100' : 'opacity-0'
               )}
             />
 
@@ -55,12 +68,12 @@ const NavBar = () => {
         ))}
       </ul>
       <div className='relative right-10 z-[10]'>
-        <div className='flex items-center gap-4 mr-[4.75rem]'>
+        <div className='flex items-center gap-4 mr-[4.3rem]'>
           <TextButton text={`Let's Connect`} href='/contact-us' />
           <span className='size-[4px] bg-white/20 rounded-full block' />
         </div>
 
-        <LangDropdown />
+        <LangDropdown lang={lang} />
       </div>
     </div>
   );

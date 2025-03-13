@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ScrollBanner from './components/ScrollBanner/ScrollBanner';
+import ScrollBanner from '../components/ScrollBanner/ScrollBanner';
 
 export default function NotFound() {
   return (

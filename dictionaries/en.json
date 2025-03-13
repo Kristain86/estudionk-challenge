@@ -1,0 +1,28 @@
+{
+  "home": {
+    "hero_home": {
+      "title": "We empower brands to inspire people",
+      "lead": "Creativity powerhouse",
+      "lead_description": "Ignited by technology and innovation, we take ideas to the moon and beyond.",
+      "button": "Subscribe to /nk.news"
+    }
+  },
+  "services": {
+    "title": "Services"
+  },
+  "work": {
+    "title": "Work"
+  },
+  "culture": {
+    "title": "Culture"
+  },
+  "news": {
+    "title": "News"
+  },
+  "careers": {
+    "title": "Careers"
+  },
+  "contact_us": {
+    "title": "Contact Us"
+  }
+}

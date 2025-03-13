@@ -1,0 +1,28 @@
+{
+  "home": {
+    "hero_home": {
+      "title": "Empoderamos marcas para inspirar",
+      "lead": "Poder creativo",
+      "lead_description": "Ignitado por la tecnología y la innovación, llevamos ideas a la luna y más allá.",
+      "button": "Suscríbete a /nk.news"
+    }
+  },
+  "services": {
+    "title": "Servicios"
+  },
+  "work": {
+    "title": "Trabajo"
+  },
+  "culture": {
+    "title": "Cultura"
+  },
+  "news": {
+    "title": "Noticias"
+  },
+  "careers": {
+    "title": "Carreras"
+  },
+  "contact_us": {
+    "title": "Contactanos"
+  }
+}

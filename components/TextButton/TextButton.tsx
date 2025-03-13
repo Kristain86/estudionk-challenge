@@ -25,14 +25,14 @@ const Content = ({ text }: TextButtonProps) => {
 const TextButton = ({ text, href, callback }: TextButtonProps) => {
   if (href) {
     return (
-      <Link href={href}>
+      <Link href={href} className='w-fit'>
         <Content text={text} />
       </Link>
     );
   }
 
   return (
-    <button onClick={callback}>
+    <button onClick={callback} className='w-fit'>
       <Content text={text} />
     </button>
   );
