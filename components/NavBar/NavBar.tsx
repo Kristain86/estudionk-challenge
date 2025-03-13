@@ -37,7 +37,7 @@ const NavBar = () => {
   const pathname = usePathname();
 
   return (
-    <div className='relative top-[4rem] left-[13.375rem] z-[10] -mt-5.5 flex items-center justify-between w-full max-w-[calc(100%-13.375rem)]'>
+    <div className='absolute top-[3.6rem] left-[13.375rem] z-[10] -mt-5.5 flex items-center justify-between w-full max-w-[calc(100%-13.375rem)]'>
       <ul className='flex items-center gap-[2.625rem]'>
         {navLinks.map(item => (
           <li key={item.href} className='text-primary-white text-[0.9375rem] relative'>
@@ -54,9 +54,12 @@ const NavBar = () => {
           </li>
         ))}
       </ul>
-      <div className='relative right-10 z-[10] flex items-center justify-center gap-4'>
-        <TextButton text={`Let's Connect`} href='/contact-us' />
-        <span className='size-[4px] bg-white/20 rounded-full block' />
+      <div className='relative right-10 z-[10]'>
+        <div className='flex items-center gap-4 mr-[4.75rem]'>
+          <TextButton text={`Let's Connect`} href='/contact-us' />
+          <span className='size-[4px] bg-white/20 rounded-full block' />
+        </div>
+
         <LangDropdown />
       </div>
     </div>
