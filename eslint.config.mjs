@@ -10,7 +10,8 @@ export default antfu(
     rules: {
       'style/semi': 'off',
       'style/member-delimiter-style': 'off',
-      'style/jsx-quotes': ['error', 'prefer-single']
+      'style/jsx-quotes': ['error', 'prefer-single'],
+      'antfu/top-level-function': 'off',
     },
   }
 );

@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
+
+const NavBar = dynamic(() => import('../components/NavBar/NavBar'));
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -21,8 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${dmSans.variable} antialiased`}>{children}</body>
+    <html lang='en' className='overflow-x-hidden' suppressHydrationWarning>
+      <body className={`${dmSans.variable} overflow-x-hidden antialiased`}>
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }

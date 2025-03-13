@@ -1,7 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
+  --background: #111111;
   --foreground: #171717;
 }
 
@@ -9,6 +9,16 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-primary: var(--font-dm-sans);
+
+  --color-primary-green: #00ffc2;
+  --color-primary-black: #131817;
+  --color-primary-white: #fdfdf9;
+
+  --color-secondary-grey-100: #dfe0dd;
+  --color-secondary-grey-200: #c2c3c0;
+  --color-secondary-grey-300: #888a88;
+  --color-secondary-grey-400: #595d5b;
+  --color-secondary-green: #24ecbc;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +27,11 @@
     --foreground: #ededed;
   }
 }
+
+/* body,
+html {
+  overflow: hidden;
+} */
 
 body {
   background: var(--background);
