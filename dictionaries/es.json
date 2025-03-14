@@ -24,5 +24,14 @@
   },
   "contact_us": {
     "title": "Contactanos"
+  },
+  "navbar": {
+    "studio": "Estudio",
+    "services": "Servicios",
+    "work": "Trabajo",
+    "culture": "Cultura",
+    "news": "Noticias",
+    "careers": "Carreras",
+    "contact_us": "Conectemos"
   }
 }

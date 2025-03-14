@@ -24,5 +24,14 @@
   },
   "contact_us": {
     "title": "Contact Us"
+  },
+  "navbar": {
+    "studio": "Studio",
+    "services": "Services",
+    "work": "Work",
+    "culture": "Culture",
+    "news": "News",
+    "careers": "Careers",
+    "contact_us": "Let's connect"
   }
 }

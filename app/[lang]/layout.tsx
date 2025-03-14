@@ -2,6 +2,7 @@ import type { LangType } from '@/types';
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { DM_Sans } from 'next/font/google';
+import { getDictionary } from './dictionaries';
 import './globals.css';
 
 const NavBar = dynamic(() => import('@/components/NavBar/NavBar'));
@@ -29,10 +30,12 @@ export default async function RootLayout({
 }>) {
   const { lang } = await params;
 
+  const dict = await getDictionary(lang);
+
   return (
     <html lang={lang} className='overflow-x-hidden' suppressHydrationWarning>
       <body className={`${dmSans.variable} overflow-x-hidden antialiased`}>
-        <NavBar lang={lang} />
+        <NavBar lang={lang} dict={dict.navbar} />
         {children}
       </body>
     </html>
