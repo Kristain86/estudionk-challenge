@@ -23,9 +23,11 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  subscribe,
   params,
 }: Readonly<{
   children: React.ReactNode;
+  subscribe: React.ReactNode;
   params: Promise<{ lang: LangType }>;
 }>) {
   const { lang } = await params;
@@ -36,6 +38,7 @@ export default async function RootLayout({
     <html lang={lang} className='overflow-x-hidden' suppressHydrationWarning>
       <body className={`${dmSans.variable} overflow-x-hidden antialiased`}>
         <NavBar lang={lang} dict={dict.navbar} />
+        {subscribe}
         {children}
       </body>
     </html>

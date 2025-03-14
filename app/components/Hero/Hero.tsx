@@ -4,10 +4,7 @@ import ScrollBanner from '../ScrollBanner/ScrollBanner';
 
 interface HeroProps {
   dict: {
-    title: string;
-    lead: string;
-    lead_description: string;
-    button: string;
+    [key: string]: string;
   };
 }
 
@@ -26,7 +23,7 @@ const Hero = ({ dict }: HeroProps) => {
         </div>
         <h1 className='text-[7rem] text-primary-white leading-[96%] mb-[7.125rem]'>{dict.title}</h1>
 
-        <TextButton text={dict.button} href='/contact-us' />
+        <TextButton text={dict.button} href='/subscribe' />
       </div>
 
       <Image src='/images/background.webp' alt='Scroll Banner' fill className='object-cover' priority />

@@ -33,5 +33,12 @@
     "news": "Noticias",
     "careers": "Carreras",
     "contact_us": "Conectemos"
+  },
+  "subscribe": {
+    "title": "Suscríbete a",
+    "success_title": "Gracias por suscribirte a",
+    "success_description": "Traemos marcas y personas más cerca a través de paisajes digitales, identidades audaces e ideas de pensamiento innovador que encienden emociones y redefinen límites.",
+    "cta_form": "Suscríbete",
+    "cta_success": "Cerrar"
   }
 }

@@ -13,11 +13,14 @@
   --color-primary-green: #00ffc2;
   --color-primary-black: #131817;
   --color-primary-white: #fdfdf9;
+  --color-primary-red: #fc8181;
 
   --color-secondary-grey-100: #dfe0dd;
   --color-secondary-grey-200: #c2c3c0;
   --color-secondary-grey-300: #888a88;
   --color-secondary-grey-400: #595d5b;
+  --color-secondary-grey-500: #888a88;
+  --color-secondary-black: #131918;
   --color-secondary-green: #24ecbc;
 }
 

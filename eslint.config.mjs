@@ -12,6 +12,12 @@ export default antfu(
       'style/member-delimiter-style': 'off',
       'style/jsx-quotes': ['error', 'prefer-single'],
       'antfu/top-level-function': 'off',
+      'style/comma-dangle': 'off',
+      'antfu/consistent-list-newline': 'off',
+      'style/jsx-closing-bracket-location': 'off',
+      'style/multiline-ternary': 'off',
+      'style/indent': 'off',
+      'style/eol-last': 'off',
     },
   }
 );

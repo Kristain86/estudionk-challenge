@@ -33,5 +33,12 @@
     "news": "News",
     "careers": "Careers",
     "contact_us": "Let's connect"
+  },
+  "subscribe": {
+    "title": "Subscribe to",
+    "success_title": "Thank you for subscribing to",
+    "success_description": "We bring brands and people closer through digital landscapes, bold identities and forward-thinking ideas that spark emotion and redefine boundaries.",
+    "cta_form": "Subscribe",
+    "cta_success": "Close"
   }
 }
