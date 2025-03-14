@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { subscribeAction } from './actions';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -28,16 +29,22 @@ const SubscribeForm = ({ dict }: SubscribeFormProps) => {
     handleSubmit,
     formState: { errors },
     getFieldState,
+    reset,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     mode: 'onChange',
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log('data', data);
-    // Handle form submission here
+  const onSubmit = async (data: FormValues) => {
+    const { name, email } = data;
 
-    setSuccessState(true);
+    const res = await subscribeAction({ name, email });
+
+    if (res.success) {
+      setSuccessState(true);
+    } else {
+      reset();
+    }
   };
 
   return (

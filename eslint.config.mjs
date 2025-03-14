@@ -18,6 +18,7 @@ export default antfu(
       'style/multiline-ternary': 'off',
       'style/indent': 'off',
       'style/eol-last': 'off',
+      'style/brace-style': 'off',
     },
   }
 );
