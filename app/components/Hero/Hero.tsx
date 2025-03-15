@@ -18,7 +18,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
         <ScrollBanner lang={lang} />
       </div>
 
-      <div className='relative z-[1] max-w-[31.25rem] lg:max-w-[51.3rem] h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
+      <div className='relative z-[1] max-w-[31.25rem] lg:max-w-[51.3rem] h-screen block lg:flex-col justify-center ml-[2rem] pt-30 lg:pt-[6rem] lg:ml-[5rem] lg:flex'>
         <DesktopOnly>
           <div className='flex items-center gap-2 mb-8'>
             <h2 className='text-white text-[0.6875rem] uppercase'>{dict.lead}</h2>
