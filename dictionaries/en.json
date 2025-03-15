@@ -1,5 +1,15 @@
 {
+  "layout": {
+    "metadata": {
+      "title": "Estudio/nk Challenge",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    }
+  },
   "home": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Studio",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    },
     "hero_home": {
       "title": "We empower brands to inspire people",
       "lead": "Creativity powerhouse",
@@ -8,21 +18,45 @@
     }
   },
   "services": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Services",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    },
     "title": "Services"
   },
   "work": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Work",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    },
     "title": "Work"
   },
   "culture": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Culture",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    },
     "title": "Culture"
   },
   "news": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | News",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    },
     "title": "News"
   },
   "careers": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Careers",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    },
     "title": "Careers"
   },
   "contact_us": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Contact Us",
+      "description": "We create innovative digital products & future-oriented brands. We design for brands, we work for people."
+    },
     "title": "Contact Us"
   },
   "navbar": {
@@ -35,6 +69,10 @@
     "contact_us": "Let's connect"
   },
   "subscribe": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Subscribe to /nk.news",
+      "description": "We bring brands and people closer through digital landscapes, bold identities and forward-thinking ideas that spark emotion and redefine boundaries."
+    },
     "title": "Subscribe to",
     "success_title": "Thank you for subscribing to",
     "success_description": "We bring brands and people closer through digital landscapes, bold identities and forward-thinking ideas that spark emotion and redefine boundaries.",

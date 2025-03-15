@@ -1,28 +1,62 @@
 {
+  "layout": {
+    "metadata": {
+      "title": "Estudio/nk Challenge",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    }
+  },
   "home": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Estudio",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    },
     "hero_home": {
-      "title": "Empoderamos marcas para inspirar",
+      "title": "Inspiramos marcas que mueven",
       "lead": "Poder creativo",
       "lead_description": "Ignitado por la tecnología y la innovación, llevamos ideas a la luna y más allá.",
       "button": "Suscríbete a /nk.news"
     }
   },
   "services": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Servicios",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    },
     "title": "Servicios"
   },
   "work": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Trabajo",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    },
     "title": "Trabajo"
   },
   "culture": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Cultura",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    },
     "title": "Cultura"
   },
   "news": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Noticias",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    },
     "title": "Noticias"
   },
   "careers": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Carreras",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    },
     "title": "Carreras"
   },
   "contact_us": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Contactanos",
+      "description": "Creamos productos digitales innovadores y marcas orientadas al futuro. Diseñamos para marcas, trabajamos para personas."
+    },
     "title": "Contactanos"
   },
   "navbar": {
@@ -35,6 +69,10 @@
     "contact_us": "Conectemos"
   },
   "subscribe": {
+    "metadata": {
+      "title": "Estudio/nk Challenge | Suscríbete a /nk.news",
+      "description": "Traemos marcas y personas más cerca a través de paisajes digitales, identidades audaces e ideas de pensamiento innovador que encienden emociones y redefinen límites."
+    },
     "title": "Suscríbete a",
     "success_title": "Gracias por suscribirte a",
     "success_description": "Traemos marcas y personas más cerca a través de paisajes digitales, identidades audaces e ideas de pensamiento innovador que encienden emociones y redefinen límites.",

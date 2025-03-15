@@ -15,11 +15,22 @@ const dmSans = DM_Sans({
   weight: ['400', '700'],
 });
 
-export const metadata: Metadata = {
-  title: 'Estudio/nk Challenge',
-  description:
-    'We create innovative digital products & future-oriented brands. We design for brands, we work for people.',
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: LangType }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.layout.metadata.title,
+    description: dict.layout.metadata.description,
+    openGraph: {
+      images: [
+        {
+          url: 'https://estudionkcdn.sfo3.cdn.digitaloceanspaces.com/assets/img/share/og_image_share.jpg',
+        },
+      ],
+    },
+  };
+}
 
 export default async function RootLayout({
   children,

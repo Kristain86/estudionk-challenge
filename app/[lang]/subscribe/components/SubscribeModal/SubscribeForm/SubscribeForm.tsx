@@ -1,6 +1,6 @@
 'use client';
 
-import InputGroup from '@/app/components/InputGroup/InputGroup';
+import InputGroup from '@/components/InputGroup/InputGroup';
 import TextButton from '@/components/TextButton/TextButton';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';

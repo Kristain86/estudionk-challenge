@@ -35,7 +35,7 @@ const InputGroup = ({ label, placeholder, type, name, id, register, errors, isFi
           type={type}
           {...register(name)}
           className={cn(
-            'w-full px-5 py-2.5 border border-secondary-grey-400/5 bg-secondary-grey-400/40 rounded-[6.25rem] text-primary-white text-[0.9375rem] placeholder:text-primary-white outline-none transition-all duration-300',
+            'w-full px-5 py-2.5 border border-secondary-grey-400/5 bg-secondary-grey-400/40 rounded-[6.25rem] text-primary-white text-[1rem] lg:text-[0.9375rem] placeholder:text-primary-white outline-none transition-all duration-300',
             errors[name] && 'focus:border-primary-red',
             'focus:border-primary-green'
           )}
