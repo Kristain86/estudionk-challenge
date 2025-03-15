@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: Promise<{ lang: LangTyp
   return (
     <>
       <Hero dict={dict.home.hero_home} lang={lang} />
-      <SubscribeModal dict={dict.subscribe} />
+      <SubscribeModal dict={dict.subscribe} lang={lang} />
     </>
   );
 }
