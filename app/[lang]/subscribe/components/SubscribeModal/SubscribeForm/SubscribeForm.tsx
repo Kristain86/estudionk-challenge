@@ -1,5 +1,6 @@
 'use client';
 
+import type { LangType } from '@/types';
 import InputGroup from '@/components/InputGroup/InputGroup';
 import TextButton from '@/components/TextButton/TextButton';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -19,9 +20,10 @@ interface SubscribeFormProps {
   dict: {
     [key: string]: string;
   };
+  lang: LangType;
 }
 
-const SubscribeForm = ({ dict }: SubscribeFormProps) => {
+const SubscribeForm = ({ dict, lang }: SubscribeFormProps) => {
   const [successState, setSuccessState] = useState(false);
 
   const {
@@ -62,7 +64,7 @@ const SubscribeForm = ({ dict }: SubscribeFormProps) => {
         {successState ? (
           <div>
             <p className='text-[0.6875rem] text-white leading-[1.25rem] mb-[6rem]'>{dict.success_description}</p>
-            <TextButton text={dict.cta_success} href='/' />
+            <TextButton text={dict.cta_success} href={`/${lang}`} />
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
@@ -88,7 +90,11 @@ const SubscribeForm = ({ dict }: SubscribeFormProps) => {
               isFieldValid={!getFieldState('email').invalid && getFieldState('email').isDirty}
             />
 
-            <div className='mt-10'>
+            <div className='mt-10 flex items-center gap-6'>
+              <div className='inline-block lg:hidden'>
+                <TextButton text={dict.cta_success} href={`/${lang}`} />
+              </div>
+
               <TextButton text={dict.cta_form} type='submit' />
             </div>
           </form>

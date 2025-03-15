@@ -11,6 +11,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   return {
     title: dict.contact_us.metadata.title,
     description: dict.contact_us.metadata.description,
+    openGraph: {
+      images: [
+        {
+          url: 'https://estudionkcdn.sfo3.cdn.digitaloceanspaces.com/assets/img/share/og_image_share.jpg',
+        },
+      ],
+    },
   };
 }
 

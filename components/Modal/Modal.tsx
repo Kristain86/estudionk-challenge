@@ -3,7 +3,7 @@
 import type { MouseEvent } from 'react';
 import { cn } from '@/utils/cn';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ModalProps {
   children: React.ReactNode;
@@ -15,6 +15,18 @@ const widthOffset = 300;
 const Modal = ({ children, className }: ModalProps) => {
   const router = useRouter();
   const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    // Add overflow-hidden to body and html when modal mounts
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+
+    // Cleanup function to remove overflow-hidden when modal unmounts
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, []);
 
   const handleMouseMove = (e: MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -36,6 +48,8 @@ const Modal = ({ children, className }: ModalProps) => {
       y: position.y / (limitRange - 7) - widthOffset - yOffset,
     };
   };
+
+  
 
   return (
     <div

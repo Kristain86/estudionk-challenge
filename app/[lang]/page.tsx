@@ -10,6 +10,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: Lan
   return {
     title: dict.home.metadata.title,
     description: dict.home.metadata.description,
+    openGraph: {
+      images: [
+        {
+          url: 'https://estudionkcdn.sfo3.cdn.digitaloceanspaces.com/assets/img/share/og_image_share.jpg',
+        },
+      ],
+    },
   };
 }
 

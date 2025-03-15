@@ -13,12 +13,12 @@ interface HeroProps {
 
 const Hero = ({ dict, lang }: HeroProps) => {
   return (
-    <div className='relative h-screen flex'>
-      <div className='relative z-[1]'>
+    <div className='relative block lg:flex'>
+      <div className='relative z-[2]'>
         <ScrollBanner lang={lang} />
       </div>
 
-      <div className='relative z-[1] max-w-[31.25rem] lg:max-w-[51.3rem] h-screen block lg:flex-col justify-center ml-[2rem] pt-30 lg:pt-[6rem] lg:ml-[5rem] lg:flex'>
+      <div className='relative z-[2] max-w-[31.25rem] lg:max-w-[51.3rem] h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
         <DesktopOnly>
           <div className='flex items-center gap-2 mb-8'>
             <h2 className='text-white text-[0.6875rem] uppercase'>{dict.lead}</h2>

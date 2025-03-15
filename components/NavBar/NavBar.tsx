@@ -95,43 +95,48 @@ const NavBar = ({ lang, dict }: NavBarProps) => {
           </div>
         </div>
       </DesktopOnly>
-      <MobileOnly className='relative'>
-        <div className='fixed top-0 left-0 w-full z-[10] py-0 px-6 flex items-center justify-between'>
-          <Link href={`/${lang}`} className='relative inline-block' onClick={() => setIsMenuOpen(false)}>
-            <Image src='/images/logo.svg' alt='Estudio/nk' width={52} height={24} />
-          </Link>
+      <MobileOnly>
+        <div className='relative'>
+          <div
+            className={cn(
+              'fixed top-0 left-0 w-full z-[10] py-0 px-6 flex items-center justify-between transition-all duration-300',
+              isMenuOpen ? 'bg-primary-black/80' : 'bg-transparent'
+            )}>
+            <Link href={`/${lang}`} className='relative inline-block' onClick={() => setIsMenuOpen(false)}>
+              <Image src='/images/logo.svg' alt='Estudio/nk' width={52} height={24} />
+            </Link>
 
-          <HamburguerIcon isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-        </div>
-
-        <div
-          className={cn(
-            'absolute top-0 bottom-0 w-[100vw] h-screen bg-primary-black/80 backdrop-blur-sm z-[8] pt-30 px-6 transition-all duration-300',
-            isMenuOpen ? 'left-0' : 'left-full'
-          )}>
-          <div className='flex flex-col gap-6'>
-            {navLinks.map(item => (
-              <Link
-                href={`/${lang}${item.href}`}
-                key={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={cn(
-                  'text-primary-white text-3xl inline-block w-fit',
-                  handleActive(item.href) ? 'border-b border-primary-green pb-2' : ''
-                )}>
-                {dict[item.id]}
-              </Link>
-            ))}
+            <HamburguerIcon isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
           </div>
+          <div
+            className={cn(
+              'absolute top-0 bottom-0 w-[100vw] h-screen bg-primary-black/80 backdrop-blur-sm z-[8] pt-30 px-6 transition-all duration-300 overflow-y-auto',
+              isMenuOpen ? 'left-0' : 'left-full'
+            )}>
+            <div className='flex flex-col gap-6'>
+              {navLinks.map(item => (
+                <Link
+                  href={`/${lang}${item.href}`}
+                  key={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={cn(
+                    'text-primary-white text-3xl inline-block w-fit',
+                    handleActive(item.href) ? 'border-b border-primary-green pb-2' : ''
+                  )}>
+                  {dict[item.id]}
+                </Link>
+              ))}
+            </div>
 
-          <div className='flex items-center justify-start absolute bottom-20 left-6'>
-            <div className='flex items-center gap-4 mr-[4.3rem]'>
-              <div onClick={() => setIsMenuOpen(false)}>
-                <TextButton text={dict.contact_us} href={`/${lang}/contact-us`} />
+            <div className='flex items-center justify-start absolute bottom-30 left-6'>
+              <div className='flex items-center gap-4 mr-[4.3rem]'>
+                <div onClick={() => setIsMenuOpen(false)}>
+                  <TextButton text={dict.contact_us} />
+                </div>
+
+                <span className='size-[0.25rem] bg-white/20 rounded-full block' />
+                <LangDropdown lang={lang} />
               </div>
-
-              <span className='size-[0.25rem] bg-white/20 rounded-full block' />
-              <LangDropdown lang={lang} />
             </div>
           </div>
         </div>
