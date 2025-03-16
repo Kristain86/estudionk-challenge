@@ -49,16 +49,18 @@ const Modal = ({ children, className }: ModalProps) => {
       onMouseMove={handleMouseMove}
       className={cn('fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/50 z-20', className)}>
       <div className='relative flex-grow-1 mx-3 lg:flex-grow-0 lg:p-40 overflow-hidden'>
-        <div className='bg-transparent p-[1px] rounded-[0.625rem] relative overflow-hidden'>
+        <div className='bg-transparent p-[1px] rounded-[0.625rem] relative overflow-hidden max-w-[24.0625rem] lg:max-w-[25rem] mx-auto'>
           <div
             ref={modalRef}
             className='relative z-[10] bg-secondary-black rounded-[0.625rem] shadow-lg p-[2rem] lg:p-[2.75rem] w-full max-w-[24.0625rem] lg:min-w-[24.0625rem] mx-auto'>
             {children}
           </div>
           <div
-            className='absolute -z-10 w-[400px] h-[400px] bg-gradient-to-r from-primary-green to-primary-green/50 blur-[60px]'
+            className='hidden lg:block absolute -z-10 w-[25rem] h-[25rem] bg-gradient-to-r from-primary-green to-primary-green/50 blur-[60px]'
             style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
           />
+
+          <div className='block lg:hidden absolute top-0 left-0 -z-10 w-[25rem] h-[25rem] bg-gradient-to-r from-primary-green to-primary-green/50 blur-[60px] animate-circular-shadow' />
         </div>
 
         <div

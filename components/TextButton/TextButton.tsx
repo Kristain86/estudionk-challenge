@@ -1,3 +1,4 @@
+import { cn } from '@/utils/cn';
 import Link from 'next/link';
 
 interface TextButtonProps {
@@ -27,14 +28,14 @@ const Content = ({ text }: TextButtonProps) => {
 const TextButton = ({ text, href, callback, type = 'button', className }: TextButtonProps) => {
   if (href) {
     return (
-      <Link href={href} className={`w-fit inline-block${className}`}>
+      <Link href={href} className={cn('w-fit inline-block', className)}>
         <Content text={text} />
       </Link>
     );
   }
 
   return (
-    <button onClick={callback} type={type} className={`w-fit cursor-pointer ${className}`}>
+    <button onClick={callback} type={type} className={cn('w-fit cursor-pointer', className)}>
       <Content text={text} />
     </button>
   );

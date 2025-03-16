@@ -22,6 +22,37 @@
   --color-secondary-grey-500: #888a88;
   --color-secondary-black: #131918;
   --color-secondary-green: #24ecbc;
+
+  --animate-circular-shadow: circular-shadow 6s linear infinite;
+
+  @keyframes circular-shadow {
+    0% {
+      opacity: 1;
+      top: 0;
+      left: 0;
+    }
+    25% {
+      opacity: 1;
+      top: 0;
+      left: calc(100% - 200px);
+      transform: scale(0.98);
+    }
+    50% {
+      opacity: 1;
+      top: calc(100% - 100px);
+      left: calc(100% - 200px);
+    }
+    75% {
+      opacity: 1;
+      top: calc(100% - 100px);
+      left: 0;
+    }
+    100% {
+      opacity: 1;
+      top: 0;
+      left: 0;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
