@@ -13,17 +13,17 @@ interface HeroProps {
 
 const Hero = ({ dict, lang }: HeroProps) => {
   return (
-    <div className='relative block lg:flex'>
+    <div className='relative flex'>
       <div className='relative z-[2]'>
         <ScrollBanner lang={lang} />
       </div>
 
-      <div className='relative z-[2] max-w-[31.25rem] lg:max-w-[51.3rem] h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
+      <div className='relative z-[2] max-w-[31.25rem] lg:max-w-[51.3rem] h-dvh lg:h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
         <DesktopOnly>
           <div className='flex items-center gap-2 mb-8'>
-            <h2 className='text-white text-[0.6875rem] uppercase'>{dict.lead}</h2>
+            <h2 className='text-white text-xs uppercase'>{dict.lead}</h2>
             <div className='w-5 h-[1px] bg-primary-green' />
-            <p className='text-white/70 text-[0.6875rem]'>{dict.lead_description}</p>
+            <p className='text-white/70 text-xs'>{dict.lead_description}</p>
           </div>
         </DesktopOnly>
 
@@ -31,10 +31,10 @@ const Hero = ({ dict, lang }: HeroProps) => {
           <div className='flex flex-col gap-2 mb-8 max-w-[18rem]'>
             <div>
               <div className='w-5 h-[1px] bg-primary-green inline-block align-middle mr-2' />
-              <h2 className='text-white text-[0.6875rem] uppercase inline-block'>{dict.lead}</h2>
+              <h2 className='text-white text-xs uppercase inline-block'>{dict.lead}</h2>
             </div>
 
-            <p className='text-white/70 text-[0.6875rem]'>{dict.lead_description}</p>
+            <p className='text-white/70 text-xs'>{dict.lead_description}</p>
           </div>
         </MobileOnly>
 

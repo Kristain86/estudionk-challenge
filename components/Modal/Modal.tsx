@@ -3,7 +3,8 @@
 import type { MouseEvent } from 'react';
 import { cn } from '@/utils/cn';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 interface ModalProps {
   children: React.ReactNode;
@@ -15,18 +16,7 @@ const widthOffset = 300;
 const Modal = ({ children, className }: ModalProps) => {
   const router = useRouter();
   const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    // Add overflow-hidden to body and html when modal mounts
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-
-    // Cleanup function to remove overflow-hidden when modal unmounts
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
-  }, []);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -49,18 +39,20 @@ const Modal = ({ children, className }: ModalProps) => {
     };
   };
 
-  
+  useClickOutside({
+    ref: modalRef,
+    callback: () => router.push('/'),
+  });
 
   return (
     <div
-      onMouseDown={() => router.push('/')}
       onMouseMove={handleMouseMove}
-      className={cn('fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/50 z-[20]', className)}>
+      className={cn('fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black/50 z-20', className)}>
       <div className='relative flex-grow-1 mx-3 lg:flex-grow-0 lg:p-40 overflow-hidden'>
         <div className='bg-transparent p-[1px] rounded-[0.625rem] relative overflow-hidden'>
           <div
-            className='bg-secondary-black rounded-[0.625rem] shadow-lg p-[2rem] lg:p-[2.75rem] w-full max-w-[24.0625rem] lg:min-w-[24.0625rem] mx-auto'
-            onMouseDown={e => e.stopPropagation()}>
+            ref={modalRef}
+            className='relative z-[10] bg-secondary-black rounded-[0.625rem] shadow-lg p-[2rem] lg:p-[2.75rem] w-full max-w-[24.0625rem] lg:min-w-[24.0625rem] mx-auto'>
             {children}
           </div>
           <div

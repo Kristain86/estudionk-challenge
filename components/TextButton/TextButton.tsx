@@ -5,6 +5,7 @@ interface TextButtonProps {
   callback?: () => void;
   href?: string;
   type?: 'button' | 'submit';
+  className?: string;
 }
 
 const Content = ({ text }: TextButtonProps) => {
@@ -23,17 +24,17 @@ const Content = ({ text }: TextButtonProps) => {
   );
 };
 
-const TextButton = ({ text, href, callback, type = 'button' }: TextButtonProps) => {
+const TextButton = ({ text, href, callback, type = 'button', className }: TextButtonProps) => {
   if (href) {
     return (
-      <Link href={href} className='w-fit inline-block'>
+      <Link href={href} className={`w-fit inline-block${className}`}>
         <Content text={text} />
       </Link>
     );
   }
 
   return (
-    <button onClick={callback} type={type} className='w-fit cursor-pointer'>
+    <button onClick={callback} type={type} className={`w-fit cursor-pointer ${className}`}>
       <Content text={text} />
     </button>
   );

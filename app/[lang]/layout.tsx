@@ -47,8 +47,9 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} className='overflow-x-hidden' suppressHydrationWarning>
-      <body className={`${dmSans.variable} overflow-x-hidden antialiased`}>
+      <body className={`${dmSans.variable} overflow-x-hidden`}>
         <NavBar lang={lang} dict={dict.navbar} />
+
         {subscribe}
         {children}
       </body>

@@ -63,7 +63,7 @@ const SubscribeForm = ({ dict, lang }: SubscribeFormProps) => {
       <div>
         {successState ? (
           <div>
-            <p className='text-[0.6875rem] text-white leading-[1.25rem] mb-[6rem]'>{dict.success_description}</p>
+            <p className='text-xs text-white leading-[1.25rem] mb-[6rem]'>{dict.success_description}</p>
             <TextButton text={dict.cta_success} href={`/${lang}`} />
           </div>
         ) : (
@@ -95,7 +95,7 @@ const SubscribeForm = ({ dict, lang }: SubscribeFormProps) => {
                 <TextButton text={dict.cta_success} href={`/${lang}`} />
               </div>
 
-              <TextButton text={dict.cta_form} type='submit' />
+              <TextButton className='p-4 lg:p-0' text={dict.cta_form} type='submit' />
             </div>
           </form>
         )}

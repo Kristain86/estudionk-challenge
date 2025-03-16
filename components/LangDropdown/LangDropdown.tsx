@@ -62,7 +62,7 @@ const LangDropdown = ({ lang }: { lang: LangType }) => {
               {langs.map(langItem => (
                 <span
                   className={cn(
-                    'text-primary-white block text-[0.6875rem] uppercase mb-2.5 cursor-pointer max-w-6 hover:text-primary-green',
+                    'text-primary-white block text-xs uppercase mb-2.5 cursor-pointer max-w-6 hover:text-primary-green',
                     lang === langItem.value && 'border-b border-primary-green text-primary-green'
                   )}
                   key={langItem.value}

@@ -110,7 +110,7 @@ const NavBar = ({ lang, dict }: NavBarProps) => {
           </div>
           <div
             className={cn(
-              'absolute top-0 bottom-0 w-[100vw] h-screen bg-primary-black/80 backdrop-blur-sm z-[8] pt-30 px-6 transition-all duration-300 overflow-y-auto',
+              'fixed top-0 bottom-0 w-[100vw] h-full bg-primary-black/80 backdrop-blur-sm z-[8] pt-30 px-6 transition-all duration-300 overflow-y-auto',
               isMenuOpen ? 'left-0' : 'left-full'
             )}>
             <div className='flex flex-col gap-6'>
@@ -128,7 +128,7 @@ const NavBar = ({ lang, dict }: NavBarProps) => {
               ))}
             </div>
 
-            <div className='flex items-center justify-start absolute bottom-30 left-6'>
+            <div className='fixed bottom-[12%] left-6'>
               <div className='flex items-center gap-4 mr-[4.3rem]'>
                 <div onClick={() => setIsMenuOpen(false)}>
                   <TextButton text={dict.contact_us} />
