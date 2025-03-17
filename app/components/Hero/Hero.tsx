@@ -3,16 +3,13 @@
 import type { LangType } from '@/types';
 import CanvasWrapper from '@/components/CanvasWrapper/CanvasWrapper';
 import { DesktopOnly, MobileOnly } from '@/components/Responsive/Responsive';
+import ScrollBanner from '@/components/ScrollBanner/ScrollBanner';
 import TextButton from '@/components/TextButton/TextButton';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRef } from 'react';
-
-import ScrollBanner from '../../../components/ScrollBanner/ScrollBanner';
-
-const Bar3D = dynamic(() => import('./Bar3D/Bar3D'), { ssr: false });
+import Bar3D from './Bar3D/Bar3D';
 
 interface HeroProps {
   dict: {
@@ -110,7 +107,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
       </div>
 
       <div className='absolute top-0 w-full h-full z-[2] left-0 right-auto lg:left-auto lg:-right-[25vw] slash lg:opacity-0'>
-        <div className='block lg:hidden opacity-50 absolute top-0 right-0 bottom-0 left-0 bg-primary-black border border-amber-600 z-10' />
+        <div className='block lg:hidden opacity-50 absolute top-0 right-0 bottom-0 left-0 bg-primary-black z-10' />
         <CanvasWrapper>
           <Bar3D />
         </CanvasWrapper>
