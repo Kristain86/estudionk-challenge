@@ -20,6 +20,8 @@ export default antfu(
       'style/eol-last': 'off',
       'style/brace-style': 'off',
       'style/arrow-parens': 'off',
+      'antfu/if-newline': 'off',
+      'style/jsx-one-expression-per-line': 'off',
     },
   }
 );

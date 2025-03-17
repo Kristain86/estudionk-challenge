@@ -1,8 +1,10 @@
 import type { LangType } from '@/types';
 import type { Metadata } from 'next';
-import Hero from '@/app/components/Hero/Hero';
+import dynamic from 'next/dynamic';
 import { getDictionary } from '../dictionaries';
 import SubscribeModal from './components/SubscribeModal/SubscribeModal';
+
+const Hero = dynamic(() => import('@/app/components/Hero/Hero'), { ssr: true });
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: LangType }> }): Promise<Metadata> {
   const { lang } = await params;

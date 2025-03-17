@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: false,
     dirs: ['.'],
   },
-  devIndicators: false
+  devIndicators: false,
 };
 
 export default nextConfig;

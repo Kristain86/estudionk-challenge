@@ -25,5 +25,9 @@ export default async function Page({ params }: { params: Promise<{ lang: LangTyp
 
   const dict = await getDictionary(lang);
 
-  return <Hero dict={dict.home.hero_home} lang={lang} />;
+  return (
+    <div>
+      <Hero dict={dict.home.hero_home} lang={lang} />;
+    </div>
+  );
 }
