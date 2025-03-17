@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ lang: LangTyp
         <ScrollBanner lang={lang} />
       </div>
 
-      <div className='relative z-[1] max-w-[51.3rem] h-screen flex flex-col justify-center ml-[2rem] pt-[6rem] lg:ml-[5rem]]'>
+      <div className='relative z-[2] max-w-[31.25rem] lg:max-w-[51.3rem] h-dvh lg:h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
         <h1 className='text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[7.125rem]'>
           {dict.careers.title}
         </h1>

@@ -28,7 +28,7 @@ export function middleware(request: { nextUrl: { pathname: string }; headers: { 
 export const config = {
   matcher: [
     // Skip all internal paths (_next), api routes, and all files with extensions
-    '/((?!api|_next|.*\\..*$).*)',
+    '/((?!_next|api|models/|assets/|.*\\.).*)',
     // Optional: only run on root (/) URL
     // '/'
   ],

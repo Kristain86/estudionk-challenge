@@ -53,7 +53,7 @@ const navLinks = [
   },
 ];
 
-const DEFAULT_DURATION = 1;
+const DEFAULT_DURATION = 0.6;
 
 const NavBar = ({ lang, dict }: NavBarProps) => {
   const pathname = usePathname();
@@ -74,7 +74,7 @@ const NavBar = ({ lang, dict }: NavBarProps) => {
     () => {
       const timeline = gsap.timeline();
       timeline
-        .delay(0.5)
+        .delay(3)
         .to('.nav-link', { opacity: 1, duration: DEFAULT_DURATION, stagger: 0.2, ease: 'power2.out' })
         .to('.text-button', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
         .to('.lang-dropdown', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');

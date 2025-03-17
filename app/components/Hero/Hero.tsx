@@ -1,13 +1,18 @@
 'use client';
 
 import type { LangType } from '@/types';
+import CanvasWrapper from '@/components/CanvasWrapper/CanvasWrapper';
 import { DesktopOnly, MobileOnly } from '@/components/Responsive/Responsive';
 import TextButton from '@/components/TextButton/TextButton';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRef } from 'react';
+
 import ScrollBanner from '../../../components/ScrollBanner/ScrollBanner';
+
+const Bar3D = dynamic(() => import('./Bar3D/Bar3D'), { ssr: false });
 
 interface HeroProps {
   dict: {
@@ -24,14 +29,16 @@ const Hero = ({ dict, lang }: HeroProps) => {
 
   useGSAP(
     () => {
-      gsap.to('.scroll-banner', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' });
+      gsap.to('.scroll-banner', { opacity: 1, duration: DEFAULT_DURATION, ease: 'power2.out' });
 
       const timeline = gsap.timeline();
 
       timeline
-        .delay(3)
+        .delay(0.5)
+
         .to('.lead', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
         .to('.green-line', { width: '1.25rem', duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
+        .to('.slash', { opacity: 1, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
         .to('.lead-description', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
         .to('.main-title', { opacity: 1, y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
         .to('.text-button', { opacity: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
@@ -53,11 +60,11 @@ const Hero = ({ dict, lang }: HeroProps) => {
 
   return (
     <div className='relative flex' ref={container}>
-      <div className='relative z-[2] scroll-banner opacity-0 translate-x-4'>
+      <div className='relative z-[3] scroll-banner opacity-0'>
         <ScrollBanner lang={lang} />
       </div>
 
-      <div className='relative z-[2] max-w-[31.25rem] lg:max-w-[51.3rem] h-dvh lg:h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
+      <div className='relative z-[3] max-w-[31.25rem] lg:max-w-[51.3rem] h-dvh lg:h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
         <DesktopOnly>
           <div className='flex items-center gap-2 mb-8'>
             <h2 className='text-white text-xs uppercase lead opacity-0 translate-x-4'>{dict.lead}</h2>
@@ -85,7 +92,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
           {dict.title}
         </h1>
 
-        <DesktopOnly>
+        <DesktopOnly className='relative z-[10]'>
           <TextButton
             text={dict.button}
             href={`/${lang}/subscribe`}
@@ -97,9 +104,16 @@ const Hero = ({ dict, lang }: HeroProps) => {
           <TextButton
             text={dict.button}
             href={`/${lang}/subscribe`}
-            className='opacity-0 text-button-mobile block lg:hidden'
+            className='opacity-0 text-button-mobile block lg:hidden relative z-[10]'
           />
         </MobileOnly>
+      </div>
+
+      <div className='absolute top-0 w-full h-full z-[2] left-0 right-auto lg:left-auto lg:-right-[25vw] slash lg:opacity-0'>
+        <div className='block lg:hidden opacity-50 absolute top-0 right-0 bottom-0 left-0 bg-primary-black border border-amber-600 z-10' />
+        <CanvasWrapper>
+          <Bar3D />
+        </CanvasWrapper>
       </div>
 
       <Image src='/images/background.webp' alt='Scroll Banner' fill className='object-cover' priority />

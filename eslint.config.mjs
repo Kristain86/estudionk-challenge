@@ -19,6 +19,7 @@ export default antfu(
       'style/indent': 'off',
       'style/eol-last': 'off',
       'style/brace-style': 'off',
+      'style/arrow-parens': 'off',
     },
   }
 );
