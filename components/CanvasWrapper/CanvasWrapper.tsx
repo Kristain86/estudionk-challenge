@@ -1,8 +1,14 @@
 import { Canvas } from '@react-three/fiber';
+import { memo } from 'react';
 
-const CanvasWrapper = ({ children }: { children: React.ReactNode }) => {
+const CanvasWrapper = memo(({ children }: { children: React.ReactNode }) => {
   return (
     <Canvas
+      gl={{
+        antialias: false,
+        powerPreference: 'high-performance',
+        alpha: true,
+      }}
       camera={{
         fov: 45,
         near: 0.1,
@@ -11,6 +17,6 @@ const CanvasWrapper = ({ children }: { children: React.ReactNode }) => {
       {children}
     </Canvas>
   );
-};
+});
 
 export default CanvasWrapper;

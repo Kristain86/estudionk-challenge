@@ -37,7 +37,11 @@ const Hero = ({ dict, lang }: HeroProps) => {
         .to('.green-line', { width: '1.25rem', duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
         .to('.slash', { opacity: 1, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
         .to('.lead-description', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
-        .to('.main-title', { opacity: 1, y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
+        .to(
+          '.main-title',
+          { opacity: 1, visibility: 'visible', y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' },
+          '-=0.5'
+        )
         .to('.text-button', { opacity: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
 
       const mobileTimeline = gsap.timeline();
@@ -46,7 +50,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
         .to('.lead-mobile', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
         .to(
           '.main-title-mobile',
-          { opacity: 1, y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' },
+          { visibility: 'visible', y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' },
           '-=0.5'
         )
         .to('.text-button-mobile', { opacity: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
@@ -81,11 +85,11 @@ const Hero = ({ dict, lang }: HeroProps) => {
           </div>
         </MobileOnly>
 
-        <h1 className='main-title text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] opacity-0 translate-y-10 hidden lg:block'>
+        <h1 className='main-title text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] opacity-100 invisible translate-y-10 hidden lg:block'>
           {dict.title}
         </h1>
 
-        <h1 className='main-title-mobile text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] opacity-0 translate-y-10 block lg:hidden'>
+        <h1 className='main-title-mobile text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] opacity-100 invisible translate-y-10 block lg:hidden'>
           {dict.title}
         </h1>
 
@@ -106,7 +110,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
         </MobileOnly>
       </div>
 
-      <div className='absolute top-0 w-full h-full z-[2] left-0 right-auto lg:left-auto lg:-right-[25vw] slash lg:opacity-0'>
+      <div className='absolute top-0 w-full h-full z-[2] left-0 right-auto lg:left-auto lg:-right-[25vw] slash lg:opacity-0 pointer-events-none'>
         <div className='block lg:hidden opacity-50 absolute top-0 right-0 bottom-0 left-0 bg-primary-black z-10' />
         <CanvasWrapper>
           <Bar3D />
