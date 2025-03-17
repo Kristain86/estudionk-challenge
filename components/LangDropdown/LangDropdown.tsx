@@ -5,6 +5,11 @@ import { cn } from '@/utils/cn';
 import { useClickOutside } from '@/hooks/useClickOutside';
 import type { LangType } from '@/types';
 
+interface LangDropdownProps {
+  lang: LangType;
+  className?: string;
+}
+
 const langs = [
   {
     label: 'ENG',
@@ -16,7 +21,7 @@ const langs = [
   },
 ];
 
-const LangDropdown = ({ lang }: { lang: LangType }) => {
+const LangDropdown = ({ lang, className }: LangDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -34,7 +39,7 @@ const LangDropdown = ({ lang }: { lang: LangType }) => {
   const parsedLang = langs.find(langItem => langItem.value === lang);
 
   return (
-    <div className='absolute top-0 right-0' onClick={() => setIsOpen(!isOpen)} ref={ref}>
+    <div className={cn('absolute top-0 right-0', className)} onClick={() => setIsOpen(!isOpen)} ref={ref}>
       <div
         className={cn(
           'group h-auto border py-1.5 px-2.5 cursor-pointer flex flex-col items-center transition-colors duration-300',
