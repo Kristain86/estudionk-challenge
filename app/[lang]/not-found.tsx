@@ -11,7 +11,7 @@ export default function NotFound() {
 
   return (
     <div className='relative h-screen flex'>
-      <div className='relative z-[10]'>
+      <div className='relative z-[3]'>
         <ScrollBanner lang={lang as LangType} />
       </div>
       <div className='relative z-[1] max-w-[31.25rem] lg:max-w-[51.3rem] h-screen flex flex-col justify-center ml-[2rem] lg:pt-[6rem] lg:ml-[5rem]'>
