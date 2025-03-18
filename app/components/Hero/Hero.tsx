@@ -26,36 +26,38 @@ const Hero = ({ dict, lang }: HeroProps) => {
 
   useGSAP(
     () => {
-      gsap.to('.scroll-banner', { opacity: 1, duration: DEFAULT_DURATION, ease: 'power2.out' });
-
       const timeline = gsap.timeline();
-
-      timeline
-        .delay(0.5)
-
-        .to('.lead', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
-        .to('.green-line', { width: '1.25rem', duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
-        .to('.slash', { opacity: 1, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
-        .to('.lead-description', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
-        .to(
-          '.main-title',
-          { opacity: 1, visibility: 'visible', y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' },
-          '-=0.5'
-        )
-        .to('.text-button', { opacity: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
-
       const mobileTimeline = gsap.timeline();
 
+      gsap.to('.scroll-banner', {
+        autoAlpha: 1,
+        duration: DEFAULT_DURATION,
+        ease: 'power2.out',
+        onComplete: () => {
+          timeline.play();
+        },
+      });
+
+      timeline
+        .pause()
+
+        .to('.lead', { autoAlpha: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
+        .to('.green-line', { width: '1.25rem', duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
+        .to('.slash', { autoAlpha: 1, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
+        .to('.lead-description', { autoAlpha: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
+        .to('.main-title', { autoAlpha: 1, y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
+        .to('.text-button', { autoAlpha: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
+
       mobileTimeline
-        .to('.lead-mobile', { opacity: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
+        .delay(1.5)
+        .to('.lead-mobile', { autoAlpha: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
         .to(
           '.main-title-mobile',
-          { visibility: 'visible', y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' },
+          { autoAlpha: 1, y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' },
           '-=0.5'
         )
-        .to('.text-button-mobile', { opacity: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
+        .to('.text-button-mobile', { autoAlpha: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
     },
-
     { scope: container }
   );
 
@@ -85,11 +87,11 @@ const Hero = ({ dict, lang }: HeroProps) => {
           </div>
         </MobileOnly>
 
-        <h1 className='main-title text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] opacity-100 invisible translate-y-10 hidden lg:block'>
+        <h1 className='main-title text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] invisible opacity-100 translate-y-10 hidden lg:block'>
           {dict.title}
         </h1>
 
-        <h1 className='main-title-mobile text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] opacity-100 invisible translate-y-10 block lg:hidden'>
+        <h1 className='main-title-mobile text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] invisible opacity-100 translate-y-10 block lg:hidden'>
           {dict.title}
         </h1>
 
@@ -117,7 +119,15 @@ const Hero = ({ dict, lang }: HeroProps) => {
         </CanvasWrapper>
       </div>
 
-      <Image src='/images/background.webp' alt='Scroll Banner' fill className='object-cover' priority />
+      <Image
+        src='/images/background.webp'
+        alt='Scroll Banner'
+        fill
+        className='object-cover'
+        priority
+        loading='eager'
+        quality={75}
+      />
     </div>
   );
 };

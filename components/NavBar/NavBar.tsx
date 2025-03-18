@@ -72,6 +72,12 @@ const NavBar = ({ lang, dict }: NavBarProps) => {
 
   useGSAP(
     () => {
+      gsap.to('.top-navbar', {
+        autoAlpha: 1,
+        duration: DEFAULT_DURATION,
+        ease: 'power2.out',
+      });
+
       const timeline = gsap.timeline();
       timeline
         .delay(3)
@@ -84,7 +90,7 @@ const NavBar = ({ lang, dict }: NavBarProps) => {
         opacity: isMenuOpen ? 1 : 0,
         duration: DEFAULT_DURATION,
         stagger: isMenuOpen ? 0.2 : 0,
-        ease: 'power2.out'
+        ease: 'power2.out',
       });
     },
     { scope: container, dependencies: [isMenuOpen] }
@@ -126,11 +132,19 @@ const NavBar = ({ lang, dict }: NavBarProps) => {
         <div className='relative'>
           <div
             className={cn(
-              'fixed top-0 left-0 w-full z-[10] py-0 px-6 flex items-center justify-between transition-all duration-300',
+              'fixed top-0 left-0 w-full z-[10] py-0 px-6 flex items-center justify-between transition-all duration-300 opacity-0 top-navbar',
               isMenuOpen ? 'bg-primary-black/80' : 'bg-transparent'
             )}>
             <Link href={`/${lang}`} className='relative inline-block' onClick={() => setIsMenuOpen(false)}>
-              <Image src='/images/logo.svg' alt='Estudio/nk' width={52} height={24} />
+              <Image
+                src='/images/logo.svg'
+                alt='Estudio/nk'
+                width={52}
+                height={24}
+                priority
+                loading='eager'
+                quality={75}
+              />
             </Link>
 
             <HamburguerIcon isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
