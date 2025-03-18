@@ -7,9 +7,9 @@ import ScrollBanner from '@/components/ScrollBanner/ScrollBanner';
 import TextButton from '@/components/TextButton/TextButton';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useRef } from 'react';
-import Bar3D from './Bar3D/Bar3D';
 
 interface HeroProps {
   dict: {
@@ -17,6 +17,8 @@ interface HeroProps {
   };
   lang: LangType;
 }
+
+const Bar3D = dynamic(() => import('./Bar3D/Bar3D'), { ssr: false });
 
 const DEFAULT_DURATION = 1;
 
@@ -40,7 +42,6 @@ const Hero = ({ dict, lang }: HeroProps) => {
 
       timeline
         .pause()
-
         .to('.lead', { autoAlpha: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
         .to('.green-line', { width: '1.25rem', duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
         .to('.slash', { autoAlpha: 1, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5')
