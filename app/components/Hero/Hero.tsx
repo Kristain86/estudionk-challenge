@@ -50,13 +50,8 @@ const Hero = ({ dict, lang }: HeroProps) => {
         .to('.text-button', { autoAlpha: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
 
       mobileTimeline
-        .delay(1.5)
+        .to('.main-title-mobile', { x: 0, rotate: 0, duration: DEFAULT_DURATION * 2, ease: 'power2.inOut' }, '-=0.5')
         .to('.lead-mobile', { autoAlpha: 1, x: 0, duration: DEFAULT_DURATION, ease: 'power2.out' })
-        .to(
-          '.main-title-mobile',
-          { autoAlpha: 1, y: 0, rotate: 0, duration: DEFAULT_DURATION, ease: 'power2.out' },
-          '-=0.5'
-        )
         .to('.text-button-mobile', { autoAlpha: 1, y: 0, duration: DEFAULT_DURATION, ease: 'power2.out' }, '-=0.5');
     },
     { scope: container }
@@ -92,7 +87,7 @@ const Hero = ({ dict, lang }: HeroProps) => {
           {dict.title}
         </h1>
 
-        <h1 className='main-title-mobile text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] invisible opacity-100 translate-y-10 block lg:hidden'>
+        <h1 className='main-title-mobile text-[3.5rem] lg:text-[7rem] text-primary-white leading-[96%] mb-[3.125rem] lg:mb-[7.125rem] -translate-x-40 block lg:hidden'>
           {dict.title}
         </h1>
 
